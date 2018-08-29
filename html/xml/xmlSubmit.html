@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <style>
+      body{
+        margin: 10%;
+      }
+      textarea{
+        height: 300px;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>XEE Injection</h1>
+      <form id="frm1" name="frm1" action="./xmlParse.php" method="POST" class="">
+
+        <!--タグそのまま送信-->
+        <textarea name="xml_body">
+<info>
+  <item>
+    <title>Item1</title>
+    <link>てすと</link>
+  </item>
+  <item>
+    <title>Item2</title>
+    <link>GSX</link>
+  </item>
+</info>
+        </textarea>
+        <input type="hidden" name="id" value="xml">
+        <button class="btn btn-primary" value="sendBtn">-send-</button>
+      </form>
+    </div>
+    <script>
+      //デバッグ用、Ajaxでもできた
+      (function(){
+        'use strict'
+        //let xml = `PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48aW5mbz48aXRlbT48dGl0bGU+44OG44K544OIMDE8L3RpdGxlPjxsaW5rPuOBu+OBkuOBu+OBkjwvbGluaz48L2l0ZW0+PGl0ZW0+PHRpdGxlPuODhuOCueODiDAyPC90aXRsZT48bGluaz7jgbTjgojjgbTjgog8L2xpbms+PC9pdGVtPjwvaW5mbz4K`;
+        //let xml = `PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPGluZm8+CiAgPGl0ZW0+CiAgICA8dGl0bGU+44OG44K544OIMDE8L3RpdGxlPgogICAgPGxpbms+44G744GS44G744GSPC9saW5rPgogIDwvaXRlbT4KICA8aXRlbT4KICAgIDx0aXRsZT7jg4bjgrnjg4gwMjwvdGl0bGU+CiAgICA8bGluaz7jgbTjgojjgbTjgog8L2xpbms+CiAgPC9pdGVtPgo8L2luZm8+Cg==`;
+          let xml =
+          `<info><item><title>01</title><link>ほげほげ</link></item><item><title>02</title><link>ぴよぴよ</link></item></info>`;
+      })();
+    </script>
+  </body>
+</html>
