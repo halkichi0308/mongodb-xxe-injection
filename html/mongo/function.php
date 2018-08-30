@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 0);
 //connect sql
 $dockerMongoIp = gethostbyname("mongo-server");
 $user = 'admin';
@@ -8,7 +9,7 @@ $manager = new MongoDB\Driver\Manager("mongodb://{$dockerMongoIp}:27017");
 $input = [];//ユーザの入力値を格納
 
 $db['dbName'] = 'main_db';
-$db['tblName'] = 'user_tbl';
+$db['tblName'] = 'user';
 $db['collection'] = $db['dbName'].'.'.$db['tblName'];
 //$manager = new MongoDB\Driver\Manager("mongodb://{$user}:{$passwd}@{$dockerMongoIp}:27017");
 //$manager = new MongoDB\Driver\Manager("mongodb://{$user}:{$passwd}@{$dockerMongoIp}:27017/admin");
@@ -70,7 +71,7 @@ function h($str = ''){
 
   if(empty($str)){
     return '';
-    
+
   }elseif(gettype($str) === 'string'){
 
     $_tmp = htmlspecialchars($str, ENT_QUOTES);

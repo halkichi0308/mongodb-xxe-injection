@@ -31,7 +31,7 @@
       exit;
     }
 
-    $query = "db.user_tbl.update(
+    $query = "db.user.update(
                 { name:'{$input['name']}' },
                 { {$updateQueryCmd} },
                 true );";
