@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 0);
+//ini_set('display_errors', 0);
 //connect sql
 $dockerMongoIp = gethostbyname("mongo-server");
 $user = 'admin';
@@ -11,7 +11,7 @@ $input = [];//ユーザの入力値を格納
 $db['dbName'] = 'main_db';
 $db['tblName'] = 'user';
 $db['collection'] = $db['dbName'].'.'.$db['tblName'];
-//$manager = new MongoDB\Driver\Manager("mongodb://{$user}:{$passwd}@{$dockerMongoIp}:27017");
+//use context in MongoDB\Driver\Manager
 //$manager = new MongoDB\Driver\Manager("mongodb://{$user}:{$passwd}@{$dockerMongoIp}:27017/admin");
 $options = [
   'projection' => ['_id' => 0],
@@ -34,9 +34,7 @@ function echo_header(){
 EOF;
   echo $s;
 }
-function echo_footer(){
-
-}
+function echo_footer(){}
 
 function hasRequireParams($input, $requires){
     if($input[$requires] === ''){
@@ -46,10 +44,8 @@ function hasRequireParams($input, $requires){
     }
 }
 
-function existUserId($manager, $username){
-
+function fetchUser($manager, $username){
   global $options, $db;
-
   $existUser = array(
     'name' => $username
   );
@@ -68,16 +64,12 @@ function existUserId($manager, $username){
 }
 
 function h($str = ''){
-
   if(empty($str)){
     return '';
-
   }elseif(gettype($str) === 'string'){
-
     $_tmp = htmlspecialchars($str, ENT_QUOTES);
     return $_tmp;
   }
   return '';
 }
-
 ?>

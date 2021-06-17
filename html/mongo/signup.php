@@ -20,16 +20,13 @@
       $query[$key] = $_POST["params"][$key];
       $input[$key] = htmlspecialchars($_POST["params"][$key]);//echo back用
     }
-
     //存在ユーザのチェック。もっと簡単なやりかたがありそう
-    $cursor = existUserId($manager, $query['name']);
-
+    $cursor = fetchUser($manager, $query['name']);
     if($cursor !== FALSE){
       $_SESSION['msg'] = 'すでに登録されているユーザです。';
       header('Location: ./signup.php');
       exit;
     }
-
     //$bulk->update($existUser,  ['$set' => $query]);
     $bulk->insert($query);
     $manager->executeBulkWrite($db['collection'], $bulk);

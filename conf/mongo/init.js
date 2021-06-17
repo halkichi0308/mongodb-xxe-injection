@@ -11,7 +11,6 @@ var newUsers = [
         ]
     }
 ];
-
 var currentUsers = db.getUsers();
 if (currentUsers.length === newUsers.length) {
     quit();

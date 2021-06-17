@@ -78,7 +78,6 @@
           $cnt = 1;
           if(isset($rows)){
             foreach($rows as $row){
-
               $h_name = h($row['name']);
               $h_passwd = h($row['passwd']);
               echo <<<EOF
@@ -105,14 +104,13 @@ EOF;
   </div>
   <script>
     let elem = document.getElementById('search');
-
     if(elem.value){
        (document.getElementById('msg')).innerHTML = '<h2>Search results for ' + elem.value + '</h2>';
     }
   </script>
   <script>
-    let _debugAry = `<?php var_dump($query);?>`;
-    console.log(_debugAry);
+    const phpVarDumped = `<?php var_dump($query);?>`;
+    console.log(phpVarDumped);
   </script>
 </body>
 </html>

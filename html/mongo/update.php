@@ -21,21 +21,16 @@
       $updateQueryCmd .= sprintf('%s:"%s"', $key, $_POST["params"][$key]);
     }
 
-    //DBからユーザがいるかどうか
-    $cursor = existUserId($manager, $input['name']);
-
-
+    $cursor = fetchUser($manager, $input['name']);
     if($cursor === FALSE){
       $_SESSION['msg'] = 'ユーザー登録がありません';
       header('Location: ./update.php');
       exit;
     }
-
     $query = "db.user.update(
                 { name:'{$input['name']}' },
                 { {$updateQueryCmd} },
                 true );";
-
     try{
 
       $cmd = new \MongoDB\Driver\Command(['eval' => $query]);

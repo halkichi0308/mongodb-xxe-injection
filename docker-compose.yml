@@ -12,7 +12,7 @@ services:
   #mongo
     mongo-server:
       #image: mongo
-      build: ./Mongo
+      image: mongo:4.2.0
       restart: always
       #ハンズオン用
       ports:
