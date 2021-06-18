@@ -1,6 +1,6 @@
-/*
+/* using file by initialize 
 var newUsers = [
-  {
+    {
         user: 'logger',
         pwd: 'password',
         roles: [

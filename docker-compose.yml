@@ -1,19 +1,16 @@
 version: '3.1'
 services:
-  #apache
     php:
-      build: ./html/xml
+      build: .
       volumes:
         - ./html:/var/www/html
       ports:
-        - '80:80'
+        - '8080:80'
       links:
         - mongo-server
   #mongo
     mongo-server:
-      #image: mongo
       image: mongo:4.2.0
       restart: always
-      #ハンズオン用
       ports:
         - '27017:27017'

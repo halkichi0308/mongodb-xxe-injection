@@ -6,13 +6,14 @@ $user = 'admin';
 $passwd = 'example';
 $manager = new MongoDB\Driver\Manager("mongodb://{$dockerMongoIp}:27017");
 
-$input = [];//ユーザの入力値を格納
-
+$input = [];
 $db['dbName'] = 'main_db';
 $db['tblName'] = 'user';
 $db['collection'] = $db['dbName'].'.'.$db['tblName'];
 //use context in MongoDB\Driver\Manager
 //$manager = new MongoDB\Driver\Manager("mongodb://{$user}:{$passwd}@{$dockerMongoIp}:27017/admin");
+
+//optionはMongoDBの引数として渡す
 $options = [
   'projection' => ['_id' => 0],
   'sort' => ['_id' => -1],
@@ -36,12 +37,8 @@ EOF;
 }
 function echo_footer(){}
 
-function hasRequireParams($input, $requires){
-    if($input[$requires] === ''){
-      return FALSE;
-    }else{
-      return TRUE;
-    }
+function hasRequirementParams($input, $requires){
+  return $input[$requires] === '' ? FALSE : TRUE;
 }
 
 function fetchUser($manager, $username){
